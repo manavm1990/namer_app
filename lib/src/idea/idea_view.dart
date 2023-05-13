@@ -22,6 +22,15 @@ class IdeaView extends StatelessWidget {
               idea.description.asLowerCase,
               style: textStyle24.merge(textStyleItalic),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 32),
+              child: ElevatedButton(
+                onPressed: () {
+                  print('Clicked');
+                },
+                child: const Text('Click Me'),
+              ),
+            ),
           ],
         ),
       ),
