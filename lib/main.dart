@@ -13,6 +13,7 @@ void main() async {
           create: (_) async {
             final settingsController = SettingsController(SettingsService());
             await settingsController.loadSettings();
+
             return settingsController;
           },
           initialData: null,
