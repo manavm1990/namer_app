@@ -3,17 +3,23 @@ import 'package:namer_app/src/app.dart';
 import 'package:namer_app/src/idea/idea.dart';
 import 'package:namer_app/src/settings/settings_controller.dart';
 import 'package:namer_app/src/settings/settings_service.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
-  final settingsController = SettingsController(SettingsService());
-  final idea = Idea();
-
-  await settingsController.loadSettings();
-
   runApp(
-    NamerApp(
-      settingsController: settingsController,
-      idea: idea,
-    ), // NamerApp
+    MultiProvider(
+      providers: [
+        FutureProvider(
+          create: (_) async {
+            final settingsController = SettingsController(SettingsService());
+            await settingsController.loadSettings();
+            return settingsController;
+          },
+          initialData: null,
+        ),
+        Provider(create: (_) => Idea()),
+      ],
+      child: const NamerApp(),
+    ),
   ); // runApp
 }
