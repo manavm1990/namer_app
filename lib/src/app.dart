@@ -16,15 +16,15 @@ class NamerApp extends StatelessWidget {
 
     return settingsController == null
         ? const MaterialApp(
-            home: Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            ),
-          )
+      home: Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      ),
+    )
         : MaterialApp(
-            title: 'Namer App',
-            theme: ThemeData.dark(useMaterial3: true),
-            themeMode: settingsController.themeMode,
-            home: IdeaView(idea: idea),
-          );
+      title: 'Namer App',
+      theme: ThemeData.dark(useMaterial3: true),
+      themeMode: settingsController.themeMode,
+      home: IdeaView(idea: idea),
+    );
   }
 }
