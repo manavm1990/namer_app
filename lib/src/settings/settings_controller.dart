@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'settings_service.dart';
+import 'package:namer_app/src/settings/settings_service.dart';
 
 /// A class that many Widgets can interact with to read user settings, update
 /// user settings, or listen to user settings changes.
@@ -45,6 +44,6 @@ class SettingsController with ChangeNotifier {
 
     // Persist the changes to a local database or the internet using the
     // SettingService.
-    await _settingsService.updateThemeMode(newThemeMode);
+    await _settingsService.updateThemeMode();
   }
 }
